@@ -1,0 +1,199 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Faculty.master.cs" Inherits="DigitalClassroom.Faculty.Faculty1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+     <style>
+        :root {
+            --color-primary: #0073ff;
+            --color-white: #e9e9e9;
+            --color-black: #141d28;
+            --color-black-1: #212b38;
+            --gradient-start: #5c658d;
+            --gradient-end: #123593; /* Adjust gradient end color as desired */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+        }
+
+        .logo {
+            color: var(--color-white);
+            font-size: 30px;
+        }
+
+            .logo span {
+                color: red;
+            }
+
+        .menu-bar {
+            /* background-color: var(--color-black); */
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            height: 80px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            position: sticky;
+            top: 0;
+        }
+
+            .menu-bar ul {
+                list-style: none;
+                display: flex;
+            }
+
+                .menu-bar ul li {
+                    /* width: 120px; */
+                    padding: 10px 30px;
+                    /* text-align: center; */
+
+                    position: relative;
+                }
+
+                    .menu-bar ul li a {
+                        font-size: 20px;
+                        color: var(--color-white);
+                        text-decoration: none;
+                        transition: all 0.3s;
+                    }
+
+                        .menu-bar ul li a:hover {
+                            color: var(--color-primary);
+                        }
+
+        .fas {
+            float: right;
+            margin-left: 10px;
+            padding-top: 3px;
+        }
+
+        /* dropdown menu style */
+        .dropdown-menu {
+            display: none;
+        }
+
+        .menu-bar ul li:hover .dropdown-menu {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: var(--color-black);
+        }
+
+            .menu-bar ul li:hover .dropdown-menu ul {
+                display: block;
+                margin: 10px;
+            }
+
+                .menu-bar ul li:hover .dropdown-menu ul li {
+                    width: 150px;
+                    padding: 10px;
+                }
+
+        .dropdown-menu-1 {
+            display: none;
+        }
+
+        .dropdown-menu ul li:hover .dropdown-menu-1 {
+            display: block;
+            position: absolute;
+            left: 150px;
+            top: 0;
+            background-color: var(--color-black);
+        }
+
+        .hero {
+            height: calc(100vh - 80px);
+            background-image: url(./bg.jpg);
+            background-position: center;
+        }
+
+        .footer {
+            /* background-color:#000; */
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            padding: 0px;
+            text-align: center;
+            height: 70px;
+        }
+
+            .footer p {
+                color: white;
+                text-align: center;
+                padding-top: 16px;
+            }
+
+        .designer {
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+          <div class="menu-bar">
+            <h1 class="logo">Faculty<span>Portal.</span></h1>
+            <ul>
+                <li><a href="FacultyHome.aspx">Home</a></li>
+                <li><a href="fact_course.aspx">Course</a></li>
+                <li><a href="fact_assignment.aspx">Assignment</a>
+                </li>
+                <li><a href="faculty_lecture.aspx">Lecture</a></li>
+                <li><a href="#">Faculty Profile <i class="fas fa-caret-down"></i></a>
+
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="Edit.aspx">Edit Profile</a></li>
+                            <li><a href="fact_ResetPassword.aspx">Reset Password</a></li>
+                             <li><a href="fact_logout.aspx">Log Out</a></li>
+                            <%--<li>
+                                <a href="#">Team <i class="fas fa-caret-right"></i></a>
+
+                                <%--<div class="dropdown-menu-1">
+                                    <ul>
+                                        <li><a href="#">Team-1</a></li>
+                                        <li><a href="#">Team-2</a></li>
+                                        <li><a href="#">Team-3</a></li>
+                                        <li><a href="#">Team-4</a></li>
+                                    </ul>
+                                </div>
+                            </li>--%>
+                            <%-- <li><a href="#">FAQ</a></li>--%>
+                        </ul>
+                    </div>
+                </li>
+
+
+            </ul>
+        </div>
+     </asp:ContentPlaceHolder>
+
+    <form id="form1" runat="server">
+        
+             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+       
+    </form>
+
+     <div class="footer">
+        <p>
+            &copy; Copyright <strong><span class="designer">Digital-Classroom</span></strong>
+        . All Rights Reserved<p>
+    </div>
+</body>
+</html>
